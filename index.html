@@ -1,0 +1,1065 @@
+<!-- first website code -->
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>UB Fragrances</title>
+  <link rel="shortcut icon" href="ub fragrances logo.png" type="image/x-icon">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet"/>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: black;
+      color: gold;
+    }
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 2rem;
+      background: #060503;
+      border-bottom: 1px solid gold;
+    }
+    header img {
+      height: 80px;
+    }
+    .tagline {
+      font-size: 1.5rem;
+      font-weight: bold;
+      background: linear-gradient(45deg, gold, white);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-align: right;
+    }
+    nav {
+      display: flex;
+      justify-content: center;
+      background: rgba(0, 0, 0, 0.5);
+      backdrop-filter: blur(10px);
+      padding: 1rem 0;
+      position: sticky;
+      top: 0;
+      z-index: 999;
+      border: 1px solid rgba(255, 215, 0, 0.2);
+      border-radius: 10px;
+    }
+    nav a {
+      color: gold;
+      margin: 0 1rem;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1.1rem;
+      position: relative;
+      padding: 0.5rem 1rem;
+      transition: all 0.4s ease;
+    }
+    nav a::before {
+      content: "";
+      position: absolute;
+      width: 0%;
+      height: 3px;
+      bottom: 0;
+      left: 0;
+      background-color: gold;
+      visibility: hidden;
+      transition: all 0.3s ease-in-out;
+    }
+    nav a:hover::before {
+      visibility: visible;
+      width: 100%;
+    }
+    nav a:hover {
+      color: white;
+      transform: scale(1.1);
+    }
+    .hero {
+      text-align: center;
+      padding: 5rem 2rem;
+      background: linear-gradient(135deg, rgba(255,215,0,0.1), rgba(255,215,0,0.05));
+      animation: gradientGlow 10s ease infinite alternate;
+    }
+    .hero h1 {
+      font-size: 3rem;
+      background: linear-gradient(to right, #fff, gold);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: fadeIn 2s ease;
+    }
+    .search-bar {
+      text-align: center;
+      margin: 2rem 0;
+    }
+    .search-bar input {
+      padding: 0.7rem;
+      width: 60%;
+      max-width: 400px;
+      border: none;
+      border-radius: 30px;
+      outline: none;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+    }
+    .search-bar input:focus {
+      box-shadow: 0 0 10px gold;
+      border: 2px solid gold;
+    }
+    .products {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.5rem;
+      padding: 2rem;
+    }
+    .product {
+      background: #111;
+      padding: 1rem;
+      border: 1px solid gold;
+      border-radius: 8px;
+      text-align: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .product:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 0 15px gold;
+    }
+    .product img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 5px;
+      transition: transform 0.5s ease;
+    }
+    .product:hover img {
+      transform: scale(1.05);
+    }
+    .product button {
+      background: linear-gradient(to right, gold, #ffd700);
+      color: black;
+      padding: 0.5rem 1rem;
+      margin-top: 0.5rem;
+      border: none;
+      border-radius: 20px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: all 0.3s ease;
+    }
+    .product button:hover {
+      background: linear-gradient(to right, black, gold);
+      color: gold;
+      border: 1px solid gold;
+    }
+    #about {
+      padding: 3rem 2rem;
+      background: linear-gradient(135deg, #0f0f0f, #1a1a1a);
+      border-top: 1px solid gold;
+      border-bottom: 1px solid gold;
+      text-align: center;
+    }
+    #about h2 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      color: gold;
+      border-bottom: 2px solid gold;
+      display: inline-block;
+      padding-bottom: 5px;
+    }
+    #about p {
+      max-width: 800px;
+      margin: auto;
+      text-align: justify;
+      line-height: 1.8;
+      font-size: 1.1rem;
+      color: #ddd;
+      padding-bottom: 1rem;
+    }
+    #contact {
+      padding: 3rem 2rem;
+      background: #111;
+      text-align: center;
+      border: 1px solid rgba(255, 215, 0, 0.4);
+      box-shadow: 0 0 20px rgba(255, 215, 0, 0.2);
+    }
+    #contact h2 {
+      font-size: 2.5rem;
+      color: gold;
+      margin-bottom: 1rem;
+    }
+    .contact-icons {
+      margin-top: 1.5rem;
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+    .contact-icons a {
+      color: gold;
+      font-size: 2rem;
+      transition: transform 0.3s, color 0.3s;
+    }
+    .contact-icons a:hover {
+      transform: scale(1.2);
+      color: white;
+    }
+    .contact-text {
+      margin-top: 1rem;
+      color: #ddd;
+      font-size: 1.1rem;
+    }
+    footer {
+      background: #111;
+      padding: 2rem;
+      text-align: center;
+      color: #888;
+      font-size: 0.9rem;
+    }
+    .popup-overlay {
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0,0,0,0.6);
+      display: none;
+      z-index: 999;
+    }
+    .popup {
+      position: fixed;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      background: rgba(0,0,0,0.8);
+      backdrop-filter: blur(15px);
+      padding: 2rem;
+      border-radius: 10px;
+      display: none;
+      z-index: 1000;
+      box-shadow: 0 0 20px gold;
+      width: 90%;
+      max-width: 400px;
+      animation: popupFade 0.5s ease;
+    }
+    .popup input, .popup textarea {
+      width: 100%;
+      margin-bottom: 1rem;
+      padding: 0.6rem;
+      border-radius: 5px;
+      border: none;
+    }
+    .popup button {
+      background: linear-gradient(to right, gold, #ffd700);
+      border: none;
+      padding: 0.6rem 1rem;
+      cursor: pointer;
+      width: 100%;
+      font-weight: bold;
+      color: black;
+    }
+    .popup-close {
+      position: absolute;
+      top: 10px; right: 15px;
+      font-size: 20px;
+      color: white;
+      cursor: pointer;
+    }
+    @keyframes fadeIn {
+      from {opacity: 0; transform: translateY(20px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
+    @keyframes gradientGlow {
+      0% {background: linear-gradient(135deg, rgba(255,215,0,0.1), rgba(255,215,0,0.05));}
+      100% {background: linear-gradient(135deg, rgba(255,215,0,0.2), rgba(255,215,0,0.1));}
+    }
+    @keyframes popupFade {
+      from {opacity: 0; transform: translateY(-30px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <img src="ub fragrances logo.png" alt="Logo">
+    <div class="tagline">UB Fragrances<br>Luxurious. Long-lasting. Bold.</div>
+  </header>
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#products">Products</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+  </nav>
+  <section class="hero" id="home" data-aos="fade-up">
+    <h1>Discover the Power of Oudh</h1>
+  </section>
+  <section class="search-bar" data-aos="fade-up">
+    <input type="text" id="searchInput" placeholder="Search Product Name...">
+  </section>
+  <section id="products" data-aos="fade-up">
+    <div class="products" id="productList"></div>
+  </section>
+  <section id="about" data-aos="fade-up">
+    <h2>About Us</h2>
+    <p>UB Fragrances is a luxury Pakistani perfume brand offering bold and long-lasting Oudh-based scents for men. Each fragrance reflects strength, elegance, and cultural pride. We blend tradition with modern aroma techniques to provide a premium experience that commands attention. Let UB Fragrances be your signature of excellence.</p>
+  </section>
+  <section id="contact" data-aos="fade-up">
+    <h2>Contact Us</h2>
+    <div class="contact-text">For queries, email: <a href="mailto:ub7941832@gmail.com" style="color:gold;">ubfragrances@gmail.com </a><br>Or WhatsApp us: <a href="https://wa.me/923363216135" style="color:gold;">+92 336 3216135 </a></div>
+    <div class="contact-icons">
+      <a href="https://wa.me/923363216135"><i class="fab fa-whatsapp"></i></a>
+      <a href="mailto:ub7941832@gmail.com"><i class="fas fa-envelope"></i></a>
+      <a href="https://www.instagram.com/umair_baloch_07/"><i class="fab fa-instagram"></i></a>
+    </div>
+  </section>
+  <footer>
+    <p>&copy; 2025 UB Fragrances. All rights reserved.</p>
+  </footer>
+  <div class="popup-overlay"></div>
+  <div class="popup" id="popupForm">
+    <span class="popup-close" onclick="closePopup()">&times;</span>
+    <h3 style="text-align:center; color: gold;">Place Your Order</h3>
+    <input type="text" id="nameInput" placeholder="Your Name" required>
+    <input type="email" id="emailInput" placeholder="Your Email" required>
+    <input type="text" id="productInput" placeholder="Product Name" readonly>
+    <textarea rows="4" id="addressInput" placeholder="Full Address"></textarea>
+    <button onclick="submitOrder()">Submit Order</button>
+  </div>
+
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init();
+    const productNames = [
+      "Royal Oudh", "Bold Musk", "Golden Oud", "Night King", "Black Amber",
+      "Wood Warrior", "Elite Sandal", "Zahoor", "Sheikh Blend", "Imperial Oud"
+    ];
+    const prices = [3500,2800,3200,3700,3300,3000,3600,2500,3900,4100];
+
+    const productList = document.getElementById("productList");
+    const searchInput = document.getElementById("searchInput");
+
+    function renderProducts(filter = "") {
+      productList.innerHTML = "";
+      for (let i = 0; i < productNames.length; i++) {
+        if (productNames[i].toLowerCase().includes(filter.toLowerCase())) {
+          productList.innerHTML += `
+            <div class="product" data-aos="fade-up">
+              <img src="https://via.placeholder.com/200x200?text=${productNames[i].replace(" ", "+")}" alt="${productNames[i]}">
+              <h3>${productNames[i]}</h3>
+              <p>Rs. ${prices[i]}</p>
+              <p>Premium fragrance that lasts all day.</p>
+              <button onclick="openPopup('${productNames[i]}')">Buy Now</button>
+            </div>
+          `;
+        }
+      }
+    }
+    searchInput.addEventListener("input", () => {
+      renderProducts(searchInput.value);
+    });
+    renderProducts();
+    function openPopup(productName) {
+      document.getElementById("popupForm").style.display = "block";
+      document.querySelector(".popup-overlay").style.display = "block";
+      document.getElementById("productInput").value = productName;
+    }
+    function closePopup() {
+      document.getElementById("popupForm").style.display = "none";
+      document.querySelector(".popup-overlay").style.display = "none";
+    }
+    async function submitOrder() {
+      const name = document.getElementById("nameInput").value;
+      const email = document.getElementById("emailInput").value;
+      const product = document.getElementById("productInput").value;
+      const message = document.getElementById("addressInput").value;
+      await fetch("https://script.google.com/macros/s/AKfycbyylZGBhHlBZJs8s7vM6ynNTmwiqpp4cES-1VWWGiGFjYZ6DTLx1p5l7LEaFmcTbE8/exec", {
+        method: "POST",
+        body: JSON.stringify({ name, email, product, message }),
+        headers: { "Content-Type": "application/json" }
+      });
+      const whatsappURL = `https://wa.me/923363216135?text=${encodeURIComponent(
+        `Hello! I want to order "${product}"\nName: ${name}\nEmail: ${email}`
+      )}`;
+      window.open(whatsappURL, "_blank");
+      closePopup();
+    }
+  </script>
+</body>
+</html> -->
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>UB Fragrances</title>
+  <meta name="description" content="UB Fragrances - Luxurious, long-lasting Oudh perfumes for men in Pakistan. Discover bold scents & shop online.">
+  <link rel="shortcut icon" href="ub fragrances logo.png" type="image/x-icon">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet"/>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: black;
+      color: gold;
+    }
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 2rem;
+      background: #060503;
+      border-bottom: 1px solid gold;
+    }
+    header img { height: 80px; }
+    .tagline {
+      font-size: 1.5rem;
+      font-weight: bold;
+      background: linear-gradient(45deg, gold, white);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-align: right;
+    }
+    nav {
+      display: flex;
+      justify-content: center;
+      background: rgba(0, 0, 0, 0.5);
+      backdrop-filter: blur(10px);
+      padding: 1rem 0;
+      position: sticky;
+      top: 0;
+      z-index: 999;
+      border: 1px solid rgba(255, 215, 0, 0.2);
+      border-radius: 10px;
+    }
+    nav a {
+      color: gold;
+      margin: 0 1rem;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1.1rem;
+      position: relative;
+      padding: 0.5rem 1rem;
+      transition: all 0.4s ease;
+    }
+    nav a::before {
+      content: "";
+      position: absolute;
+      width: 0%;
+      height: 3px;
+      bottom: 0;
+      left: 0;
+      background-color: gold;
+      visibility: hidden;
+      transition: all 0.3s ease-in-out;
+    }
+    nav a:hover::before {
+      visibility: visible;
+      width: 100%;
+    }
+    nav a:hover {
+      color: white;
+      transform: scale(1.1);
+    }
+    nav a.active {
+      color: white;
+    }
+    .hero {
+      text-align: center;
+      padding: 5rem 2rem;
+      background: linear-gradient(135deg, rgba(255,215,0,0.1), rgba(255,215,0,0.05));
+      animation: gradientGlow 10s ease infinite alternate;
+    }
+    .hero h1 {
+      font-size: 3rem;
+      background: linear-gradient(to right, #fff, gold);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: fadeIn 2s ease;
+    }
+    .hero a {
+      display: inline-block;
+      margin-top: 2rem;
+      background: gold;
+      color: black;
+      padding: 0.7rem 1.5rem;
+      border-radius: 25px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: all 0.3s ease;
+    }
+    .hero a:hover {
+      background: black;
+      color: gold;
+      border: 1px solid gold;
+    }
+    .search-bar {
+      text-align: center;
+      margin: 2rem 0;
+    }
+    .search-bar input {
+      padding: 0.7rem;
+      width: 60%;
+      max-width: 400px;
+      border: none;
+      border-radius: 30px;
+      outline: none;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+    }
+    .search-bar input:focus {
+      box-shadow: 0 0 10px gold;
+      border: 2px solid gold;
+    }
+    @media(max-width: 500px) {
+      .search-bar input { width: 90%; }
+    }
+    .products {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.5rem;
+      padding: 2rem;
+    }
+    .product {
+      background: #111;
+      padding: 1rem;
+      border: 1px solid gold;
+      border-radius: 8px;
+      text-align: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .product:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 0 15px gold;
+    }
+    .product img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 5px;
+      transition: transform 0.5s ease;
+    }
+    .product:hover img { transform: scale(1.05); }
+    .product button {
+      background: linear-gradient(to right, gold, #ffd700);
+      color: black;
+      padding: 0.5rem 1rem;
+      margin-top: 0.5rem;
+      border: none;
+      border-radius: 20px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: all 0.3s ease;
+    }
+    .product button:hover {
+      background: linear-gradient(to right, black, gold);
+      color: gold;
+      border: 1px solid gold;
+    }
+    #about, #contact {
+      padding: 3rem 2rem;
+      text-align: center;
+    }
+    #about {
+      background: linear-gradient(135deg, #0f0f0f, #1a1a1a);
+      border-top: 1px solid gold;
+      border-bottom: 1px solid gold;
+    }
+    #about h2, #contact h2 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      color: gold;
+      border-bottom: 2px solid gold;
+      display: inline-block;
+      padding-bottom: 5px;
+    }
+    #about p {
+      max-width: 800px;
+      margin: auto;
+      text-align: justify;
+      line-height: 1.8;
+      font-size: 1.1rem;
+      color: #ddd;
+      padding-bottom: 1rem;
+    }
+    #contact {
+      background: #111;
+      border: 1px solid rgba(255, 215, 0, 0.4);
+      box-shadow: 0 0 20px rgba(255, 215, 0, 0.2);
+    }
+    .contact-icons {
+      margin-top: 1.5rem;
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+    .contact-icons a {
+      color: gold;
+      font-size: 2rem;
+      transition: transform 0.3s, color 0.3s;
+    }
+    .contact-icons a:hover {
+      transform: scale(1.2);
+      color: white;
+    }
+    .contact-text {
+      margin-top: 1rem;
+      color: #ddd;
+      font-size: 1.1rem;
+    }
+    footer {
+      background: #111;
+      padding: 2rem;
+      text-align: center;
+      color: #888;
+      font-size: 0.9rem;
+    }
+    footer a { color: #888; margin: 0 0.5rem; text-decoration: underline; }
+    footer a:hover { color: gold; }
+    .popup-overlay, .popup { display: none; }
+    .popup-overlay {
+      position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0,0,0,0.6);
+      z-index: 999;
+    }
+    .popup {
+      position: fixed; top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      background: rgba(0,0,0,0.8);
+      backdrop-filter: blur(15px);
+      padding: 2rem;
+      border-radius: 10px;
+      z-index: 1000;
+      box-shadow: 0 0 20px gold;
+      width: 90%;
+      max-width: 400px;
+      animation: popupFade 0.5s ease;
+    }
+    .popup input, .popup textarea {
+      width: 100%;
+      margin-bottom: 1rem;
+      padding: 0.6rem;
+      border-radius: 5px;
+      border: none;
+    }
+    .popup button {
+      background: linear-gradient(to right, gold, #ffd700);
+      border: none;
+      padding: 0.6rem 1rem;
+      cursor: pointer;
+      width: 100%;
+      font-weight: bold;
+      color: black;
+    }
+    .popup-close {
+      position: absolute;
+      top: 10px; right: 15px;
+      font-size: 20px;
+      color: white;
+      cursor: pointer;
+    }
+    @keyframes fadeIn { from {opacity: 0; transform: translateY(20px);} to {opacity: 1; transform: translateY(0);} }
+    @keyframes gradientGlow { 0% {background: linear-gradient(135deg, rgba(255,215,0,0.1), rgba(255,215,0,0.05));} 100% {background: linear-gradient(135deg, rgba(255,215,0,0.2), rgba(255,215,0,0.1));} }
+    @keyframes popupFade { from {opacity: 0; transform: translateY(-30px);} to {opacity: 1; transform: translateY(0);} }
+  </style>
+</head>
+<body>
+  <header>
+    <img src="ub fragrances logo.png" alt="Logo">
+    <div class="tagline">UB Fragrances<br>Luxurious. Long-lasting. Bold.</div>
+  </header>
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#products">Products</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+  </nav>
+  <section class="hero" id="home" data-aos="fade-up">
+    <h1>Discover the Power of Oudh</h1>
+    <a href="#products">Shop Now</a>
+  </section>
+  <section class="search-bar" data-aos="fade-up">
+    <input type="text" id="searchInput" placeholder="Search Product Name...">
+  </section>
+  <section id="products" data-aos="fade-up">
+    <div class="products" id="productList"></div>
+  </section>
+  <section id="about" data-aos="fade-up">
+    <h2>About Us</h2>
+    <p>UB Fragrances is a luxury Pakistani perfume brand offering bold and long-lasting Oudh-based scents for men. Each fragrance reflects strength, elegance, and cultural pride. We blend tradition with modern aroma techniques to provide a premium experience that commands attention. Let UB Fragrances be your signature of excellence.</p>
+  </section>
+  <section id="contact" data-aos="fade-up">
+    <h2>Contact Us</h2>
+    <div class="contact-text">For queries, email: <a href="mailto:ubfragrances@gmail.com" style="color:gold;">ubfragrances@gmail.com </a><br>Or WhatsApp us: <a href="https://wa.me/923363216135" style="color:gold;">+92 336 3216135 </a></div>
+    <div class="contact-icons">
+      <a href="https://wa.me/923363216135"><i class="fab fa-whatsapp"></i></a>
+      <a href="mailto:ubfragrances@gmail.com"><i class="fas fa-envelope"></i></a>
+      <a href="https://www.instagram.com/umair_baloch_07/"><i class="fab fa-instagram"></i></a>
+    </div>
+  </section>
+  <footer>
+    <p>&copy; 2025 UB Fragrances. All rights reserved. | <a href="#">Terms</a> | <a href="#">Privacy</a></p>
+  </footer>
+  <div class="popup-overlay"></div>
+  <div class="popup" id="popupForm">
+    <span class="popup-close" onclick="closePopup()">&times;</span>
+    <h3 style="text-align:center; color: gold;">Place Your Order</h3>
+    <input type="text" id="nameInput" placeholder="Your Name" required>
+    <input type="email" id="emailInput" placeholder="Your Email" required>
+    <input type="text" id="productInput" placeholder="Product Name" readonly>
+    <textarea rows="4" id="addressInput" placeholder="Full Address"></textarea>
+    <button onclick="submitOrder()">Submit Order</button>
+  </div>
+
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init();
+    const productNames = ["Royal Oudh", "Bold Musk", "Golden Oud", "Night King", "Black Amber", "Wood Warrior", "Elite Sandal", "Zahoor", "Sheikh Blend", "Imperial Oud"];
+    const prices = [3500,2800,3200,3700,3300,3000,3600,2500,3900,4100];
+
+    const productList = document.getElementById("productList");
+    const searchInput = document.getElementById("searchInput");
+
+    function renderProducts(filter = "") {
+      productList.innerHTML = "";
+      for (let i = 0; i < productNames.length; i++) {
+        if (productNames[i].toLowerCase().includes(filter.toLowerCase())) {
+          productList.innerHTML += `
+            <div class="product" data-aos="fade-up">
+              <img src="https://via.placeholder.com/200x200?text=${productNames[i].replace(" ", "+")}" alt="${productNames[i]}">
+              <h3>${productNames[i]}</h3>
+              <p>Rs. ${prices[i]}</p>
+              <p>Premium fragrance that lasts all day.</p>
+              <button onclick="openPopup('${productNames[i]}')">Buy Now</button>
+            </div>`;
+        }
+      }
+    }
+    searchInput.addEventListener("input", () => renderProducts(searchInput.value));
+    renderProducts();
+
+    function openPopup(productName) {
+      document.getElementById("popupForm").style.display = "block";
+      document.querySelector(".popup-overlay").style.display = "block";
+      document.getElementById("productInput").value = productName;
+    }
+    function closePopup() {
+      document.getElementById("popupForm").style.display = "none";
+      document.querySelector(".popup-overlay").style.display = "none";
+    }
+    async function submitOrder() {
+      const name = document.getElementById("nameInput").value;
+      const email = document.getElementById("emailInput").value;
+      const product = document.getElementById("productInput").value;
+      const message = document.getElementById("addressInput").value;
+      if (!name || !email || !message) {
+        alert("Please fill all fields!");
+        return;
+      }
+      await fetch("https://script.google.com/macros/s/AKfycbyylZGBhHlBZJs8s7vM6ynNTmwiqpp4cES-1VWWGiGFjYZ6DTLx1p5l7LEaFmcTbE8/exec", {
+        method: "POST",
+        body: JSON.stringify({ name, email, product, message }),
+        headers: { "Content-Type": "application/json" }
+      });
+      const whatsappURL = `https://wa.me/923363216135?text=${encodeURIComponent(`Hello! I want to order "${product}"\nName: ${name}\nEmail: ${email}`)}`;
+      window.open(whatsappURL, "_blank");
+      closePopup();
+    }
+
+    // Navbar active state on scroll
+    const sections = document.querySelectorAll("section");
+    const navLinks = document.querySelectorAll("nav a");
+    window.addEventListener("scroll", () => {
+      let current = "";
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop - 150;
+        if (scrollY >= sectionTop) current = section.getAttribute("id");
+      });
+      navLinks.forEach(link => {
+        link.classList.remove("active");
+        if (link.getAttribute("href").includes(current)) link.classList.add("active");
+      });
+    });
+  </script>
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>UB Fragrances</title>
+  <meta name="description" content="UB Fragrances - Luxurious, long-lasting Oudh perfumes for men in Pakistan. Discover bold scents & shop online.">
+  <link rel="shortcut icon" href="ub fragrances logo.png" type="image/x-icon">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet"/>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
+    body { font-family: 'Segoe UI', sans-serif; background: black; color: gold; }
+
+    /* Preloader */
+    #preloader {
+      position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+      background: black; display: flex; align-items: center; justify-content: center;
+      z-index: 9999;
+    }
+    #preloader::after {
+      content: "";
+      width: 40px; height: 40px;
+      border: 4px solid gold; border-top-color: transparent;
+      border-radius: 50%; animation: spin 1s linear infinite;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    header {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1rem 2rem; background: #060503; border-bottom: 1px solid gold;
+    }
+    header img { height: 80px; }
+    .tagline {
+      font-size: 1.5rem; font-weight: bold;
+      background: linear-gradient(45deg, gold, white);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      text-align: right;
+    }
+    nav {
+      display: flex; justify-content: center;
+      background: rgba(0, 0, 0, 0.5); backdrop-filter: blur(10px);
+      padding: 1rem 0; position: sticky; top: 0; z-index: 999;
+      border: 1px solid rgba(255, 215, 0, 0.2); border-radius: 10px;
+    }
+    nav a {
+      color: gold; margin: 0 1rem; text-decoration: none;
+      font-weight: bold; font-size: 1.1rem; position: relative;
+      padding: 0.5rem 1rem; transition: all 0.4s ease;
+    }
+    nav a.active, nav a:hover { color: white; transform: scale(1.1); }
+
+    .hero {
+      text-align: center; padding: 5rem 2rem;
+      background: linear-gradient(135deg, rgba(255,215,0,0.1), rgba(255,215,0,0.05));
+    }
+    .hero h1 {
+      font-size: 3rem;
+      background: linear-gradient(to right, #fff, gold);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      animation: fadeIn 2s ease;
+    }
+    .hero a {
+      display: inline-block; margin-top: 2rem;
+      background: gold; color: black; padding: 0.7rem 1.5rem;
+      border-radius: 25px; text-decoration: none; font-weight: bold;
+      transition: all 0.3s ease;
+    }
+    .hero a:hover { background: black; color: gold; border: 1px solid gold; }
+
+    .search-bar { text-align: center; margin: 2rem 0; }
+    .search-bar input {
+      padding: 0.7rem; width: 60%; max-width: 400px;
+      border: none; border-radius: 30px; outline: none; font-size: 1rem;
+      transition: all 0.3s ease;
+    }
+    .search-bar input:focus {
+      box-shadow: 0 0 10px gold; border: 2px solid gold;
+    }
+    @media(max-width: 500px) { .search-bar input { width: 90%; } }
+
+    .products {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.5rem; padding: 2rem;
+    }
+    .product {
+      background: #111; padding: 1rem; border: 1px solid gold;
+      border-radius: 8px; text-align: center;
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+    }
+    .product:hover {
+      transform: translateY(-8px) scale(1.02);
+      box-shadow: 0 0 25px gold;
+    }
+    .product img {
+      width: 100%; height: 180px; object-fit: cover;
+      border-radius: 5px; transition: transform 0.5s ease;
+    }
+    .product:hover img { transform: scale(1.05); }
+    .product button {
+      background: linear-gradient(to right, gold, #ffd700); color: black;
+      padding: 0.5rem 1rem; margin-top: 0.5rem; border: none;
+      border-radius: 20px; cursor: pointer; font-weight: bold;
+      transition: all 0.3s ease;
+    }
+    .product button:hover {
+      background: linear-gradient(to right, black, gold);
+      color: gold; border: 1px solid gold;
+    }
+
+    #about, #contact {
+      padding: 3rem 2rem; text-align: center;
+    }
+    #about {
+      background: linear-gradient(135deg, #0f0f0f, #1a1a1a);
+      border-top: 1px solid gold; border-bottom: 1px solid gold;
+    }
+    #about h2, #contact h2 {
+      font-size: 2.5rem; margin-bottom: 1rem; color: gold;
+      border-bottom: 2px solid gold; display: inline-block; padding-bottom: 5px;
+    }
+    #about p {
+      max-width: 800px; margin: auto; text-align: justify;
+      line-height: 1.8; font-size: 1.1rem; color: #ddd; padding-bottom: 1rem;
+    }
+
+    #contact {
+      background: #111; border: 1px solid rgba(255, 215, 0, 0.4);
+      box-shadow: 0 0 20px rgba(255, 215, 0, 0.2);
+    }
+    .contact-icons {
+      margin-top: 1.5rem; display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap;
+    }
+    .contact-icons a {
+      color: gold; font-size: 2rem; transition: transform 0.3s, color 0.3s;
+    }
+    .contact-icons a:hover { transform: scale(1.2); color: white; }
+    .contact-text { margin-top: 1rem; color: #ddd; font-size: 1.1rem; }
+    footer { background: #111; padding: 2rem; text-align: center; color: #888; font-size: 0.9rem; }
+    footer a { color: #888; margin: 0 0.5rem; text-decoration: underline; }
+    footer a:hover { color: gold; }
+
+    .popup-overlay, .popup { display: none; }
+    .popup-overlay {
+      position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0,0,0,0.6); z-index: 999;
+    }
+    .popup {
+      position: fixed; top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      background: rgba(0,0,0,0.8); backdrop-filter: blur(15px);
+      padding: 2rem; border-radius: 10px; z-index: 1000;
+      box-shadow: 0 0 20px gold; width: 90%; max-width: 400px;
+      animation: popupFade 0.5s ease;
+    }
+    .popup input, .popup textarea {
+      width: 100%; margin-bottom: 1rem; padding: 0.6rem;
+      border-radius: 5px; border: none;
+    }
+    .popup button {
+      background: linear-gradient(to right, gold, #ffd700); border: none;
+      padding: 0.6rem 1rem; cursor: pointer; width: 100%;
+      font-weight: bold; color: black;
+    }
+    .popup-close {
+      position: absolute; top: 10px; right: 15px;
+      font-size: 20px; color: white; cursor: pointer;
+    }
+    @keyframes fadeIn { from {opacity: 0; transform: translateY(20px);} to {opacity: 1; transform: translateY(0);} }
+    @keyframes popupFade { from {opacity: 0; transform: translateY(-30px);} to {opacity: 1; transform: translateY(0);} }
+  </style>
+</head>
+<body>
+  <div id="preloader"></div>
+  <header>
+    <img src="ub fragrances logo.png" alt="Logo">
+    <div class="tagline">UB Fragrances<br>Luxurious. Long-lasting. Bold.</div>
+  </header>
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#products">Products</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+  </nav>
+  <section class="hero" id="home" data-aos="fade-up">
+    <h1>Discover the Power of Oudh</h1>
+    <a href="#products">Shop Now</a>
+  </section>
+  <section class="search-bar" data-aos="fade-up">
+    <input type="text" id="searchInput" placeholder="Search Product Name...">
+  </section>
+  <section id="products" data-aos="fade-up">
+    <div class="products" id="productList"></div>
+  </section>
+  <section id="about" data-aos="fade-up">
+    <h2>About Us</h2>
+    <p>UB Fragrances is a luxury Pakistani perfume brand offering bold and long-lasting Oudh-based scents for men. Each fragrance reflects strength, elegance, and cultural pride. We blend tradition with modern aroma techniques to provide a premium experience that commands attention. Let UB Fragrances be your signature of excellence.</p>
+  </section>
+  <section id="contact" data-aos="fade-up">
+    <h2>Contact Us</h2>
+    <div class="contact-text">For queries, email: <a href="mailto:ubfragrances@gmail.com" style="color:gold;">ubfragrances@gmail.com</a><br>Or WhatsApp us: <a href="https://wa.me/923363216135" style="color:gold;">+92 336 3216135</a></div>
+    <div class="contact-icons">
+      <a href="https://wa.me/923363216135"><i class="fab fa-whatsapp"></i></a>
+      <a href="mailto:ubfragrances@gmail.com"><i class="fas fa-envelope"></i></a>
+      <a href="https://www.instagram.com/umair_baloch_07/"><i class="fab fa-instagram"></i></a>
+    </div>
+  </section>
+  <footer>
+    <p>&copy; 2025 UB Fragrances. All rights reserved. | <a href="#">Terms</a> | <a href="#">Privacy</a></p>
+  </footer>
+  <div class="popup-overlay"></div>
+  <div class="popup" id="popupForm">
+    <span class="popup-close" onclick="closePopup()">&times;</span>
+    <h3 style="text-align:center; color: gold;">Place Your Order</h3>
+    <input type="text" id="nameInput" placeholder="Your Name" required>
+    <input type="email" id="emailInput" placeholder="Your Email" required>
+    <input type="text" id="productInput" placeholder="Product Name" readonly>
+    <textarea rows="4" id="addressInput" placeholder="Full Address"></textarea>
+    <button onclick="submitOrder()">Submit Order</button>
+  </div>
+
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init();
+
+    const productNames = ["Royal Oudh", "Bold Musk", "Golden Oud", "Night King", "Black Amber", "Wood Warrior", "Elite Sandal", "Zahoor", "Sheikh Blend", "Imperial Oud"];
+    const prices = [3500, 2800, 3200, 3700, 3300, 3000, 3600, 2500, 3900, 4100];
+
+    const productList = document.getElementById("productList");
+    const searchInput = document.getElementById("searchInput");
+
+    function renderProducts(filter = "") {
+      productList.innerHTML = "";
+      for (let i = 0; i < productNames.length; i++) {
+        if (productNames[i].toLowerCase().includes(filter.toLowerCase())) {
+          productList.innerHTML += `
+            <div class="product" data-aos="fade-up">
+              <img src="https://via.placeholder.com/200x200?text=${productNames[i].replace(" ", "+")}" alt="${productNames[i]}">
+              <h3>${productNames[i]}</h3>
+              <p>Rs. ${prices[i]}</p>
+              <p>Premium fragrance that lasts all day.</p>
+              <button onclick="openPopup('${productNames[i]}')">Buy Now</button>
+            </div>
+          `;
+        }
+      }
+    }
+
+    searchInput.addEventListener("input", () => {
+      renderProducts(searchInput.value);
+    });
+    renderProducts();
+
+    function openPopup(productName) {
+      document.getElementById("popupForm").style.display = "block";
+      document.querySelector(".popup-overlay").style.display = "block";
+      document.getElementById("productInput").value = productName;
+    }
+    function closePopup() {
+      document.getElementById("popupForm").style.display = "none";
+      document.querySelector(".popup-overlay").style.display = "none";
+    }
+    async function submitOrder() {
+      const name = document.getElementById("nameInput").value;
+      const email = document.getElementById("emailInput").value;
+      const product = document.getElementById("productInput").value;
+      const message = document.getElementById("addressInput").value;
+      await fetch("https://script.google.com/macros/s/AKfycbyylZGBhHlBZJs8s7vM6ynNTmwiqpp4cES-1VWWGiGFjYZ6DTLx1p5l7LEaFmcTbE8/exec", {
+        method: "POST",
+        body: JSON.stringify({ name, email, product, message }),
+        headers: { "Content-Type": "application/json" }
+      });
+      const whatsappURL = `https://wa.me/923363216135?text=${encodeURIComponent(`Hello! I want to order "${product}"\nName: ${name}\nEmail: ${email}`)}`;
+      window.open(whatsappURL, "_blank");
+      closePopup();
+    }
+
+    // Preloader
+    window.addEventListener("load", () => {
+      document.getElementById("preloader").style.display = "none";
+    });
+  </script>
+</body>
+</html>
